@@ -1,11 +1,34 @@
-<div align="center">
+# Clinical Sign
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+**Accessible sign-language communication concept for clinical encounters.**
 
-  <h1>Built with AI Studio</h2>
+Clinical Sign is a Unmute1AI product track focused on making patient-provider communication more accessible through ASL, text, speech, and visual interaction.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+> **Status: product incubator.** This repository currently contains product documentation only. It is not a medical device, certified interpreter, diagnostic system, or production health-system integration.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Intended boundary
 
-</div>
+Clinical Sign may help normalize communication intent, but communication intent must not automatically become authority to:
+- change an EHR,
+- prescribe or alter treatment,
+- submit insurance information,
+- issue clinical orders,
+- transmit sensitive data to an unapproved service.
+
+Those actions require separate authenticated systems and explicit authorization.
+
+## Production path
+
+1. Add a runnable local-first client.
+2. Add signed model/component provenance.
+3. Add low-confidence human-review states.
+4. Add accessibility testing and benchmark evidence.
+5. Add privacy/data-flow documentation.
+6. Keep health-system writes outside the reference build.
+
+See [PRODUCTION_READINESS.md](PRODUCTION_READINESS.md).
+
+---
+
+**Unmute1AI**  
+Making every signal accessible to all.
