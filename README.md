@@ -1,5 +1,7 @@
 # Clinical Sign
 
+[Portfolio](https://github.com/Unmute1-Ai/Unmute1ai#readme) · [Engineering](https://github.com/Unmute1-Ai/U1Ai#readme) · [Security evidence](https://github.com/Unmute1-Ai/glass-box#readme)
+
 **Accessible sign-language communication concept for clinical encounters.**
 
 Clinical Sign is a Unmute1AI product track focused on making patient-provider communication more accessible through ASL, text, speech, and visual interaction.
