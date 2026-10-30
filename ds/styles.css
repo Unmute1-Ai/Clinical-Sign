@@ -1,0 +1,290 @@
+/* Clinical Sign — shared styles.
+   Tokens first, then base, layout, components, and accessibility states. */
+
+:root {
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --ink: #17222b;
+  --muted: #5b6b7a;
+  --accent: #0f5c8c;
+  --accent-ink: #ffffff;
+  --ok: #1c7c4c;
+  --warn: #7a5200;
+  --warn-bg: #fff3d6;
+  --blocked: #8f2f2f;
+  --border: #c8d3dc;
+  --focus: #b35900;
+  --radius: 8px;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+header {
+  padding: 1rem 1.25rem 0.75rem;
+}
+
+h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+}
+
+.disclaimer {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.scope-banner {
+  margin: 0;
+  padding: 0.6rem 1.25rem;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-weight: 600;
+  border-block: 1px solid var(--border);
+}
+
+main {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  max-width: 70rem;
+}
+
+@media (min-width: 52rem) {
+  main {
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+  }
+}
+
+section,
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.outbox section {
+  margin-bottom: 1rem;
+}
+
+.channel-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  font: inherit;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+.channel-switcher button[aria-pressed="true"],
+#demo-toggle[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.panel h2,
+.demo h2 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+.video-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 9rem;
+  margin: 0 0 1rem;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  text-align: center;
+}
+
+.video-placeholder p {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+textarea,
+input[type="text"] {
+  font: inherit;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+label {
+  display: block;
+  margin: 0.75rem 0 0.25rem;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.mic-affordance {
+  margin: 0.5rem 0;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#sign-display {
+  display: grid;
+  place-items: center;
+  min-height: 4rem;
+  padding: 0.75rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+#transcript,
+#review-queue {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.entry,
+.review-item {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.channel-tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.confidence {
+  margin-left: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.review-item {
+  border-color: var(--warn);
+  background: var(--warn-bg);
+}
+
+.review-item .content {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.review-item .meta {
+  margin: 0 0 0.25rem;
+  color: var(--warn);
+  font-size: 0.8rem;
+}
+
+.review-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+#demo-status[data-tone="ok"] {
+  color: var(--ok);
+}
+
+#demo-status[data-tone="warn"] {
+  color: var(--warn);
+}
+
+#demo-status[data-tone="blocked"] {
+  color: var(--blocked);
+  font-weight: 700;
+}
+
+#demo-status[data-tone="working"] {
+  color: var(--muted);
+}
+
+footer {
+  padding: 0 1.25rem 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

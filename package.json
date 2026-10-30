@@ -1,0 +1,9 @@
+{
+  "name": "clinical-sign",
+  "private": true,
+  "type": "module",
+  "description": "Local-first, zero-dependency demo client for the Clinical Sign encounter concept.",
+  "scripts": {
+    "test": "node --test test/encounter.test.js test/invariants.test.js"
+  }
+}

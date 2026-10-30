@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinical Sign — encounter demo</title>
+  <link rel="stylesheet" href="ds/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <h1>Clinical Sign</h1>
+    <p class="disclaimer">
+      Product incubator demo — not a medical device, certified interpreter,
+      diagnostic system, or production health-system integration.
+    </p>
+  </header>
+
+  <p id="scope-banner" class="scope-banner" role="note" aria-live="polite">
+    Communication only — this demo cannot change health records, treatment, insurance, or orders.
+  </p>
+
+  <main id="main">
+    <section class="channels" aria-label="Communication channels">
+      <div class="channel-switcher" role="group" aria-label="Choose a channel">
+        <button type="button" data-action="switch-channel" data-channel="asl" aria-pressed="true">ASL video</button>
+        <button type="button" data-action="switch-channel" data-channel="text" aria-pressed="false">Text</button>
+        <button type="button" data-action="switch-channel" data-channel="speech" aria-pressed="false">Speech</button>
+        <button type="button" data-action="switch-channel" data-channel="sign" aria-pressed="false">Sign display</button>
+      </div>
+
+      <div class="panel" data-panel="asl" aria-label="ASL video panel">
+        <h2>ASL video panel</h2>
+        <figure class="video-placeholder">
+          <p aria-hidden="true">🤟</p>
+          <figcaption>
+            No camera is accessed in this demo. Capture simulates ASL
+            recognition of a scripted utterance at a fixed confidence.
+          </figcaption>
+        </figure>
+        <button type="button" data-action="send" data-channel="asl">Capture (simulated ASL recognition)</button>
+      </div>
+
+      <div class="panel" data-panel="text" hidden aria-label="Text panel">
+        <h2>Text</h2>
+        <label for="text-input">Type what you want to say</label>
+        <textarea id="text-input" rows="3" placeholder="e.g. Please schedule a follow-up visit."></textarea>
+        <button type="button" data-action="send" data-channel="text">Send text</button>
+      </div>
+
+      <div class="panel" data-panel="speech" hidden aria-label="Speech panel">
+        <h2>Speech</h2>
+        <p class="hint">
+          No microphone is accessed. Listen simulates speech recognition of a
+          scripted utterance at a fixed confidence.
+        </p>
+        <p class="mic-affordance" aria-hidden="true">🎤</p>
+        <button type="button" data-action="send" data-channel="speech">Listen (simulated speech recognition)</button>
+      </div>
+
+      <div class="panel" data-panel="sign" hidden aria-label="Visual and sign display">
+        <h2>Visual / sign display</h2>
+        <p class="hint">Shows the most recently committed message in a large visual format.</p>
+        <div id="sign-display" role="status" aria-live="polite">Nothing committed yet.</div>
+      </div>
+
+      <section class="demo" aria-label="Simulated recognition demo">
+        <h2>Simulated recognition demo</h2>
+        <p class="hint">
+          Runs a scripted loop of utterances at fixed confidences so both sides
+          of the confidence gate can be seen.
+          Simulated demo recognition — not a live ASL/speech model.
+        </p>
+        <button type="button" id="demo-toggle" data-action="start-demo" aria-pressed="false">Start demo</button>
+        <p id="demo-status" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <section class="outbox" aria-label="Transcript and review">
+      <section aria-labelledby="transcript-h">
+        <h2 id="transcript-h">Transcript</h2>
+        <p class="hint">
+          Entries appear only when recognition confidence is at or above 0.7,
+          or a human confirms them from review.
+        </p>
+        <p id="transcript-empty" class="empty">No committed messages yet.</p>
+        <ol id="transcript"></ol>
+      </section>
+
+      <section aria-labelledby="review-h">
+        <h2 id="review-h">Needs review</h2>
+        <p class="hint">
+          Low-confidence input waits here — never in the transcript. Confirm it
+          (optionally editing the text first) or discard it.
+        </p>
+        <p id="review-empty" class="empty">Nothing needs review.</p>
+        <ol id="review-queue"></ol>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p class="hint">
+      Local-first demo: no network requests; state lives in this tab for the
+      session and nowhere else.
+    </p>
+  </footer>
+
+  <script type="module" src="support.js"></script>
+</body>
+</html>
